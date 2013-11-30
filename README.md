@@ -26,7 +26,7 @@ Note: *# == 1,2,3*
 ### Usage
 Run the following commands in terminal:
 ``` pre
-git clone http://github.com/icehunter/homebrew-mongodb
+git clone https://github.com/Icehunter/homebrew-mongodb.git
 cd homebrew-mongodb
 sh ./setup.sh
 ```
