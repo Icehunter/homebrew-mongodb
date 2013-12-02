@@ -20,6 +20,8 @@ mkdir -p /usr/local/var/mongodb3
 
 ln -sfv /usr/local/opt/mongodb/homebrew.mxcl.mongodb*.plist ~/Library/LaunchAgents/
 
+rm -f ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb1.plist
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb2.plist
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb3.plist
