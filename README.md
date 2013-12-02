@@ -28,7 +28,7 @@ Run the following commands in terminal:
 ``` pre
 git clone https://github.com/Icehunter/homebrew-mongodb.git
 cd homebrew-mongodb
-sh ./setup.sh
+./setup.sh
 ```
 ### Verification
 You can verify your install by opening a mongo prompt with:
