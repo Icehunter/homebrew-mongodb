@@ -1,4 +1,4 @@
-#!/bin/env
+#!/usr/bin/env sh
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb1.plist
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb2.plist
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb3.plist
