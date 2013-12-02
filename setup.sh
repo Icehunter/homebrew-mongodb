@@ -3,10 +3,13 @@ launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb1.plist
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb2.plist
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb3.plist
 
+pkill -f mongod
+
 rm -f ~/Library/LaunchAgents/homebrew.mxcl.mongodb*.plist
 
 cp -f *.plist /usr/local/opt/mongodb/
 cp -f *.conf /usr/local/etc/
+cp -f replsetcontrol /usr/local/bin/
 
 mkdir -p /usr/local/var/log/mongodb1
 mkdir -p /usr/local/var/log/mongodb2
@@ -21,7 +24,10 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb1.plist
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb2.plist
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb3.plist
 
-mongo 127.0.0.1:27017 <<EOF
+echo "Waiting for replica set..."
+sleep 10
+
+mongo --host rs/localhost <<EOF
 
 var cfg = {
     "_id": "rs",

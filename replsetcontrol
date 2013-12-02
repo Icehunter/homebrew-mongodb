@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+if [ "$#" -eq 1 ]; then
+  if [ "$1" == start ] || [ "$1" == stop ] || [ "$1" == restart ]; then
+    control_type=$1
+  else
+    echo "Usage: $0 start|stop|restart"
+    exit
+  fi
+else
+  echo "Usage: $0 start|stop|restart"
+  exit
+fi
+
+if [ "$control_type" == stop ] || [ "$control_type" == restart ]; then
+  echo "Stopping MongoDB instances"
+  launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb1.plist
+  launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb2.plist
+  launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb3.plist
+  pkill -f mongod
+fi
+
+if [ "$control_type" == start ] || [ "$control_type" == restart ]; then
+  echo "Starting MongoDB instances"
+  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb1.plist
+  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb2.plist
+  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb3.plist
+fi
