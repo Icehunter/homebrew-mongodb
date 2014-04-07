@@ -22,6 +22,10 @@ ln -sfv /usr/local/opt/mongodb/homebrew.mxcl.mongodb*.plist ~/Library/LaunchAgen
 
 rm -f ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 
+rm -f /usr/local/var/mongodb1/*.lock
+rm -f /usr/local/var/mongodb2/*.lock
+rm -f /usr/local/var/mongodb3/*.lock
+
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb1.plist
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb2.plist
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb3.plist
