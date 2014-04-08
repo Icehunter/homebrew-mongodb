@@ -6,7 +6,7 @@
   <string>homebrew.mxcl.mongodb2</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/usr/local/opt/mongodb/mongod</string>
+    <string>/usr/local/opt/mongodb/bin/mongod</string>
     <string>run</string>
     <string>--config</string>
     <string>/usr/local/etc/mongod2.conf</string>
