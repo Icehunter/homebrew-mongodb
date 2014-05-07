@@ -33,7 +33,7 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb3.plist
 echo "Waiting for replica set..."
 sleep 10
 
-mongo --host localhost <<EOF
+mongo --host 127.0.0.1 <<EOF
 
 var cfg = {
     "_id": "rs",
