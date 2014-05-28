@@ -9,7 +9,7 @@ rm -f ~/Library/LaunchAgents/homebrew.mxcl.mongodb*.plist
 
 cp -f *.plist /usr/local/opt/mongodb/
 cp -f *.conf /usr/local/etc/
-cp -f replsetcontrol /usr/local/bin/
+cp -f replicaset /usr/local/bin/
 
 mkdir -p /usr/local/var/log/mongodb1
 mkdir -p /usr/local/var/log/mongodb2
