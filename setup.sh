@@ -2,10 +2,8 @@
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb1.plist
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb2.plist
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb3.plist
-
+pkill -f /usr/local/opt/mongodb/bin/mongod
 sleep 5
-
-pkill -f mongod
 
 rm -f ~/Library/LaunchAgents/homebrew.mxcl.mongodb*.plist
 
@@ -33,7 +31,7 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb2.plist
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb3.plist
 
 echo "Waiting for replica set..."
-sleep 20
+sleep 10
 
 mongo --host 127.0.0.1:27017 <<EOF
 
