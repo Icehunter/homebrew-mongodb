@@ -17,11 +17,15 @@ if [ "$control_type" == stop ] || [ "$control_type" == restart ]; then
   launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb1.plist
   launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb2.plist
   launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb3.plist
-  pkill -f mongod
+  pkill -f /usr/local/opt/mongodb/bin/mongod
+  sleep 5
 fi
 
 if [ "$control_type" == start ] || [ "$control_type" == restart ]; then
   echo "Starting MongoDB instances"
+  rm -f /usr/local/var/mongodb1/*.lock
+  rm -f /usr/local/var/mongodb2/*.lock
+  rm -f /usr/local/var/mongodb3/*.lock
   launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb1.plist
   launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb2.plist
   launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb3.plist
